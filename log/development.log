@@ -1,0 +1,34 @@
+  [1m[36m (9.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  select sqlite_version(*)
+  [1m[36m (8.0ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateProducts (20151027065649)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "description" text, "image_url" varchar, "price" decimal, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20151027065649"]]
+  [1m[35m (11.1ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-27 00:05:00 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/nagajyothig/.rvm/gems/ruby-2.2.1/gems/railties-4.2.3/lib/rails/templates/rails/welcome/index.html.erb (6.2ms)
+Completed 200 OK in 471ms (Views: 124.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2015-10-27 00:05:18 -0700
+Processing by ProductsController#index as HTML
+  [1m[35mProduct Load (0.4ms)[0m  SELECT "products".* FROM "products"
+  Rendered products/index.html.haml within layouts/application (17.7ms)
+Completed 200 OK in 5713ms (Views: 5699.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/scaffolds.self-b7683d75a914a84382b18ea7b8d4c1a0b3f55c704d6774e08aca2673e6e5a33c.css?body=1" for 127.0.0.1 at 2015-10-27 00:05:24 -0700
+
+
+Started GET "/products/new" for 127.0.0.1 at 2015-10-27 00:05:27 -0700
+Processing by ProductsController#new as HTML
+  Rendered products/_form.html.haml (180.4ms)
+  Rendered products/new.html.haml within layouts/application (213.3ms)
+Completed 200 OK in 394ms (Views: 353.4ms | ActiveRecord: 0.7ms)
